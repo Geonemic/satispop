@@ -14,9 +14,62 @@ body {
     padding: 20px;
 }
 
+.site-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #6dd5ed, #2193b0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    height: 50px;
+    width: auto;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #0056b3;
+}
+
 .categories {
     display: flex;
     gap: 10px;
+    margin-top: 80px; /* Adjusted to leave space for the header */
     margin-bottom: 20px;
 }
 
@@ -64,6 +117,8 @@ body {
     gap: 20px;
     width: 100%;
     max-width: 1200px;
+    padding-left: 20px; /* Same padding as the logo */
+    padding-right: 20px; /* To keep the padding consistent */
 }
 
 .gallery img {
@@ -147,17 +202,21 @@ button:-webkit-details-marker {
 
 .container {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
+    padding: 20px;
 }
 
 .image-container {
     position: relative;
+    width: 100%;
+    max-width: 800px;
 }
 
 .image-container img {
-    max-width: 70vw; /* Adjusted to leave space for the button */
-    max-height: 80vh;
+    width: 100%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -165,13 +224,13 @@ button:-webkit-details-marker {
 .button-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
 }
 
 .download-btn {
-    padding: 20px 40px; /* Increased padding */
-    font-size: 32px; /* Increased font size */
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -213,6 +272,7 @@ button:-webkit-details-marker {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-top: 10px; /* Added margin to bring categories closer to the button */
 }
 
 .category {
@@ -221,4 +281,56 @@ button:-webkit-details-marker {
     background-color: #28a745;
     color: white;
     border-radius: 5px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+    }
+
+    .download-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .categories {
+        justify-content: center;
+    }
+
+    .category {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-input {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .search-btn {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category {
+        width: 100%;
+        text-align: center;
+    }
 }
